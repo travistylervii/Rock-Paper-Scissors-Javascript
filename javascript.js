@@ -21,6 +21,9 @@
 //else
 //computer wins
 
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
   return Math.round(Math.random() * 3);
 }
@@ -45,34 +48,56 @@ function playRound(playerSelection, computerSelection) {
     return "Game is Tied";
     //if user has rock and computer has scissors
   } else if (playerSelectionInt === 0 && computerSelection === 1) {
+    playerScore++;
     return "Player Wins";
     //if Player has scissors and computer has paper
   } else if (playerSelectionInt === 1 && computerSelection === 2) {
+    playerScore++;
     return "Player Wins";
     //if Player has paper and computer has rock
   } else if (playerSelectionInt === 2 && computerSelection === 0) {
+    playerScore++;
     return "Player Wins";
     //anything else computer wins
   } else {
+    computerScore++;
     return "Computer Wins";
   }
 }
 
-const playerSelection = prompt("Pick Rock, Paper or Scissors...");
-const computerSelection = computerPlay();
-
-let computerSelectionString = "";
-//turn computer Int intro string
-if (computerSelection === 0) {
-  computerSelectionString = "Rock";
-} else if (computerSelection === 1) {
-  computerSelectionString = "Scissors";
-} else {
-  computerSelectionString = "Paper";
+function rpsStringConvert(rpsValue) {
+  //Convert inValue into String
+  if (rpsValue === 0) {
+    return "Rock";
+  } else if (rpsValue === 1) {
+    return "Scissors";
+  } else {
+    return "Paper";
+  }
 }
 
-console.log(`Player Throws: ${playerSelection}`);
-console.log(`Computer Throws: ${computerSelectionString}`);
-console.log(`...`);
+for (let i = 0; i < 5; i++) {
+  console.log(`GAME ${i} //////////////`);
+  const playerSelection = prompt("Pick Rock, Paper or Scissors...");
+  const computerSelection = computerPlay();
 
-console.log(playRound(playerSelection, computerSelection));
+  console.log(`Player Throws: ${playerSelection}`);
+  console.log(`Computer Throws: ${rpsStringConvert(computerSelection)}`);
+  console.log(`...`);
+  const gameResults = playRound(playerSelection, computerSelection);
+  console.log(gameResults);
+
+  console.log("");
+}
+
+console.log(`Total Scores:`);
+console.log(`PLayer Score = ${playerScore}`);
+console.log(`Computer Scores = ${computerScore}`);
+
+if (playerScore === computerScore) {
+  console.log(`Tied Series!`);
+} else if (playerScore > computerScore) {
+  console.log(`Player Wins Series!`);
+} else {
+  console.log(`Computer Wins Series!`);
+}
