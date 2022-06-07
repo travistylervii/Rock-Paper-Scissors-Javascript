@@ -23,6 +23,7 @@
 
 let playerScore = 0;
 let computerScore = 0;
+let tieGame = 0;
 
 function computerPlay() {
   return Math.round(Math.random() * 3);
@@ -45,6 +46,7 @@ function playRound(playerSelection, computerSelection) {
   }
   // If both inputs are the same, tie game.
   if (playerSelectionInt === computerSelection) {
+    tieGame++;
     return "Game is Tied";
     //if user has rock and computer has scissors
   } else if (playerSelectionInt === 0 && computerSelection === 1) {
@@ -85,6 +87,9 @@ for (let i = 0; i < 5; i++) {
   console.log(`Computer Throws: ${rpsStringConvert(computerSelection)}`);
   console.log(`...`);
   const gameResults = playRound(playerSelection, computerSelection);
+  console.log(`PLayer Score = ${playerScore}`);
+  console.log(`Computer Scores = ${computerScore}`);
+  console.log(`Tie Games = ${tieGame}`);
   console.log(gameResults);
 
   console.log("");
@@ -93,6 +98,7 @@ for (let i = 0; i < 5; i++) {
 console.log(`Total Scores:`);
 console.log(`PLayer Score = ${playerScore}`);
 console.log(`Computer Scores = ${computerScore}`);
+console.log(`Total Tied Games = ${tieGame}`);
 
 if (playerScore === computerScore) {
   console.log(`Tied Series!`);
