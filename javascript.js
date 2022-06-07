@@ -24,6 +24,7 @@
 let playerScore = 0;
 let computerScore = 0;
 let tieGame = 0;
+let gameResults = "No Results";
 
 function computerPlay() {
   return Math.round(Math.random() * 3);
@@ -78,32 +79,40 @@ function rpsStringConvert(rpsValue) {
   }
 }
 
-for (let i = 0; i < 5; i++) {
-  console.log(`GAME ${i} //////////////`);
-  const playerSelection = prompt("Pick Rock, Paper or Scissors...");
-  const computerSelection = computerPlay();
+//for (let i = 0; i < 5; i++) {
+//console.log(`GAME ${i} //////////////`);
 
-  console.log(`Player Throws: ${playerSelection}`);
-  console.log(`Computer Throws: ${rpsStringConvert(computerSelection)}`);
-  console.log(`...`);
-  const gameResults = playRound(playerSelection, computerSelection);
-  console.log(`PLayer Score = ${playerScore}`);
-  console.log(`Computer Scores = ${computerScore}`);
-  console.log(`Tie Games = ${tieGame}`);
-  console.log(gameResults);
+const buttons = document.querySelectorAll("button");
+for (button of buttons) {
+  button.addEventListener("click", function () {
+    console.log(button);
+    const playerSelection = "Rock";
+    const computerSelection = computerPlay();
 
-  console.log("");
+    console.log(`Player Throws: ${playerSelection}`);
+    console.log(`Computer Throws: ${rpsStringConvert(computerSelection)}`);
+    console.log(`...`);
+    gameResults = playRound(playerSelection, computerSelection);
+    console.log(`PLayer Score = ${playerScore}`);
+    console.log(`Computer Scores = ${computerScore}`);
+    console.log(`Tie Games = ${tieGame}`);
+    console.log(gameResults);
+
+    console.log("");
+  });
 }
 
-console.log(`Total Scores:`);
-console.log(`PLayer Score = ${playerScore}`);
-console.log(`Computer Scores = ${computerScore}`);
-console.log(`Total Tied Games = ${tieGame}`);
+//}
 
-if (playerScore === computerScore) {
-  console.log(`Tied Series!`);
-} else if (playerScore > computerScore) {
-  console.log(`Player Wins Series!`);
-} else {
-  console.log(`Computer Wins Series!`);
-}
+// console.log(`Total Scores:`);
+// console.log(`PLayer Score = ${playerScore}`);
+// console.log(`Computer Scores = ${computerScore}`);
+// console.log(`Total Tied Games = ${tieGame}`);
+
+// if (playerScore === computerScore) {
+//   console.log(`Tied Series!`);
+// } else if (playerScore > computerScore) {
+//   console.log(`Player Wins Series!`);
+// } else {
+//   console.log(`Computer Wins Series!`);
+// }
