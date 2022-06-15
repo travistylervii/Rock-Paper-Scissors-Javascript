@@ -27,7 +27,7 @@ let tieGame = 0;
 let gameResults = "No Results";
 
 function computerPlay() {
-  return Math.round(Math.random() * 3);
+  return Math.round(Math.random() * 2);
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -45,6 +45,7 @@ function playRound(playerSelection, computerSelection) {
   } else {
     return 'Not a valid selection, please select "Rock", "Paper" or "Scissors"';
   }
+  //console.log("Player Selection Int:" + playerSelectionInt);
   // If both inputs are the same, tie game.
   if (playerSelectionInt === computerSelection) {
     tieGame++;
@@ -78,28 +79,37 @@ function rpsStringConvert(rpsValue) {
     return "Paper";
   }
 }
-const buttons = document.querySelectorAll("button");
-ssss;
 
-for (let i = 0; i < 5; i++) {
-  console.log(`GAME ${i} //////////////`);
-  button.addEventListener("click", function () {
-    console.log(button);
-    const playerSelection = "Rock";
-    const computerSelection = computerPlay();
+let playerSelection = "";
+let computerSelection = "";
 
-    console.log(`Player Throws: ${playerSelection}`);
-    console.log(`Computer Throws: ${rpsStringConvert(computerSelection)}`);
-    console.log(`...`);
+const button = document.querySelectorAll("button");
+let updateText = document.querySelector(".update-text");
+let playerScoreNum = document.querySelector(".player-score");
+let tieScoreNum = document.querySelector(".tie-score");
+let computerScoreNum = document.querySelector(".computer-score");
+
+button.forEach((button) => {
+  button.addEventListener("click", () => {
+    playerSelection = button.classList.value;
+    computerSelection = computerPlay();
+
     gameResults = playRound(playerSelection, computerSelection);
-    console.log(`PLayer Score = ${playerScore}`);
-    console.log(`Computer Scores = ${computerScore}`);
-    console.log(`Tie Games = ${tieGame}`);
-    console.log(gameResults);
 
-    console.log("");
+    updateText.textContent = gameResults;
+    playerScoreNum.textContent = playerScore;
+    tieScoreNum.textContent = tieGame;
+    computerScoreNum.textContent = computerScore;
+
+    //Anounce game winner if over 5 games
+    if (playerScore >= 5) {
+      updateText.textContent = "🎉 Player Wins Series! 🎉";
+    }
+    if (computerScore >= 5) {
+      updateText.textContent = "🎉 Computer Wins Series! 🎉";
+    }
   });
-}
+});
 
 //}
 

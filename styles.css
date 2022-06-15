@@ -1,0 +1,96 @@
+body {
+  background-color: #fee900;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+.bold {
+    font-weight: bold;
+}
+.border {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.score {
+    font-size: 4em;
+    font-weight: bold;
+}
+img {
+    width: 110px;
+    padding: 0;
+    margin: 0;
+}
+
+
+button {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    background-color: #fee900;
+    box-shadow: 0 7px 0 0 #000;
+}
+
+.points-box {
+    padding: 10px 20px 50px;
+}
+
+.button-box {
+    margin-top: -60px;
+    padding: 0 30px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.grid-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  flex-grow: 4;
+}
+.grid-item {
+  flex-basis: 33%; /* initial percantage */
+  -ms-flex: auto;
+  position: relative;
+  padding: 10px; /*optional*/
+  box-sizing: border-box;
+}
+
+.player-score-box {
+  width: 50%;
+}
+.computer-score-box {
+    width: 50%;
+  }
+/*
+@media (max-width: 1333px) {
+  /*xl
+  .grid-item {
+    flex-basis: 33.33%;
+  }
+}
+@media (max-width: 1073px) {
+  /*lg
+  .grid-item {
+    flex-basis: 33.33%;
+  }
+}
+@media (max-width: 815px) {
+  /*md
+  .grid-item {
+    flex-basis: 50%;
+  }
+}
+@media (max-width: 555px) {
+  /*sm
+  .grid-item {
+    flex-basis: 100%;
+  }
+}

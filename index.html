@@ -5,13 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body style="background-color: black">
-    <div>
-      <button class="rock">Rock</button>
-      <button class="paper">Paper</button>
-      <button class="scissors">Scissors</button>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Rock Paper Scissors</h1>
+      <h3 class="text-center">First to 5 points, wins!</h3>
+      <h3 class="update-text text-center">Ready, set, go!</h3>
+      <div class="grid-row points-box border">
+        <div class="grid-item player-score-box text-center">
+          <div class="score player-score">0</div>
+          <h2>Player</h2>
+        </div>
+        <div class="grid-item tie-score-box text-center">
+          <div class="score tie-score">0</div>
+          <h2>Tie</h2>
+        </div>
+        <div class="grid-item player-score-box text-center">
+          <div class="score computer-score">0</div>
+          <h2>Comp</h2>
+        </div>
+      </div>
+      <div class="grid-row button-box">
+        <div class="grid-item text-center">
+          <button class="rock"><img src="images/rock@2x.png" /></button>
+          <p class="bold">Rock</p>
+        </div>
+        <div class="grid-item text-center">
+          <button class="paper"><img src="images/paper@2x.png" /></button>
+          <p class="bold">Paper</p>
+        </div>
+        <div class="grid-item text-center">
+          <button class="scissors"><img src="images/scissors@2x.png" /></button>
+          <p class="bold">Scissors</p>
+        </div>
+      </div>
     </div>
+
     <script src="javascript.js"></script>
   </body>
 </html>
