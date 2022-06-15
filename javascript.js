@@ -79,6 +79,7 @@ function rpsStringConvert(rpsValue) {
   }
 }
 const buttons = document.querySelectorAll("button");
+ssss;
 
 for (let i = 0; i < 5; i++) {
   console.log(`GAME ${i} //////////////`);
