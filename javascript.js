@@ -78,12 +78,10 @@ function rpsStringConvert(rpsValue) {
     return "Paper";
   }
 }
-
-//for (let i = 0; i < 5; i++) {
-//console.log(`GAME ${i} //////////////`);
-
 const buttons = document.querySelectorAll("button");
-for (button of buttons) {
+
+for (let i = 0; i < 5; i++) {
+  console.log(`GAME ${i} //////////////`);
   button.addEventListener("click", function () {
     console.log(button);
     const playerSelection = "Rock";
