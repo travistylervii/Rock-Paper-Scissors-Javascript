@@ -88,6 +88,7 @@ let updateText = document.querySelector(".update-text");
 let playerScoreNum = document.querySelector(".player-score");
 let tieScoreNum = document.querySelector(".tie-score");
 let computerScoreNum = document.querySelector(".computer-score");
+let body = document.querySelector("body");
 
 button.forEach((button) => {
   button.addEventListener("click", () => {
@@ -104,24 +105,24 @@ button.forEach((button) => {
     //Anounce game winner if over 5 games
     if (playerScore >= 5) {
       updateText.textContent = "🎉 Player Wins Series! 🎉";
+      let all = document.querySelectorAll("button");
+      for (let i = 0; i < all.length; i++)
+      {
+        all[i].disabled = true;
+
+      };
+
+     
     }
     if (computerScore >= 5) {
-      updateText.textContent = "🎉 Computer Wins Series! 🎉";
+      updateText.textContent = "🎉 Computer Wins Series! 🎉"; 
+      let all = document.querySelectorAll("button");
+      for (let i = 0; i < all.length; i++)
+      {
+        all[i].disabled = true;
+
+      }; 
+
     }
   });
 });
-
-//}
-
-// console.log(`Total Scores:`);
-// console.log(`PLayer Score = ${playerScore}`);
-// console.log(`Computer Scores = ${computerScore}`);
-// console.log(`Total Tied Games = ${tieGame}`);
-
-// if (playerScore === computerScore) {
-//   console.log(`Tied Series!`);
-// } else if (playerScore > computerScore) {
-//   console.log(`Player Wins Series!`);
-// } else {
-//   console.log(`Computer Wins Series!`);
-// }
