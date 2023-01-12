@@ -36,11 +36,11 @@ function playRound(playerSelection, computerSelection) {
   let playerSelectionInt = 0;
 
   //assign numbers to string input for computer comparison
-  if (playerSelection.toLowerCase() === "rock") {
+  if (playerSelection.toLowerCase() === "button rock") {
     playerSelectionInt = 0;
-  } else if (playerSelection.toLowerCase() === "scissors") {
+  } else if (playerSelection.toLowerCase() === "button scissors") {
     playerSelectionInt = 1;
-  } else if (playerSelection.toLowerCase() === "paper") {
+  } else if (playerSelection.toLowerCase() === "button paper") {
     playerSelectionInt = 2;
   } else {
     return 'Not a valid selection, please select "Rock", "Paper" or "Scissors"';
@@ -83,15 +83,39 @@ function rpsStringConvert(rpsValue) {
 let playerSelection = "";
 let computerSelection = "";
 
-const button = document.querySelectorAll("button");
+const button = document.querySelectorAll(".button");
+const new_game_button = document.querySelector("#new_game_btn")
 let updateText = document.querySelector(".update-text");
 let playerScoreNum = document.querySelector(".player-score");
 let tieScoreNum = document.querySelector(".tie-score");
 let computerScoreNum = document.querySelector(".computer-score");
 let body = document.querySelector("body");
 
+
+new_game_button.addEventListener("click", () => {
+  console.log("Clicked");
+  playerScore = 0;
+  computerScore = 0;
+  tieGame = 0;
+
+  updateText.textContent = "New game! Ready, set, go!";
+  playerScoreNum.textContent = playerScore;
+  tieScoreNum.textContent = tieGame;
+  computerScoreNum.textContent = computerScore;
+
+  let all = document.querySelectorAll("button");
+    for (let i = 0; i < all.length; i++)
+    {
+      all[i].disabled = false;
+
+    }; 
+
+});
+
 button.forEach((button) => {
+
   button.addEventListener("click", () => {
+
     playerSelection = button.classList.value;
     computerSelection = computerPlay();
 
@@ -111,6 +135,7 @@ button.forEach((button) => {
         all[i].disabled = true;
 
       };
+      new_game_button.disabled = false;
 
      
     }
@@ -122,6 +147,7 @@ button.forEach((button) => {
         all[i].disabled = true;
 
       }; 
+      new_game_button.disabled = false;
 
     }
   });

@@ -33,6 +33,12 @@ button {
     margin: 0;
     background-color: #fee900;
     box-shadow: 0 7px 0 0 #000;
+    cursor: pointer;
+}
+button:active {
+  box-shadow: 0 0 0 0 #000;
+  transform: translateY(3px);
+
 }
 
 .points-box {
@@ -69,6 +75,15 @@ button {
 .computer-score-box {
     width: 50%;
   }
+
+#new_game_btn {
+  width: 130px;
+  height: 40px;
+  margin: auto;
+}
+.update-text  {
+  height: 40px;
+}
 /*
 @media (max-width: 1333px) {
   /*xl
